@@ -16,7 +16,7 @@ install:
   - composer update
 
 before_script:
-  - cp .env.travis .env
+  - cp ./vendor/molovo/laravel-model-traits/.env.travis .env
   - export APP_ENV="testing"
   - php artisan migrate -q -n --path ./vendor/molovo/laravel-model-traits/src/migrations
 
