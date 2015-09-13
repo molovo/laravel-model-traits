@@ -14,6 +14,7 @@ install:
   - cd ./laravel
   - composer require "molovo/laravel-model-traits:${TRAVIS_BRANCH}@dev"
   - composer update
+  - composer dump-autoload
 
 before_script:
   - cp ./vendor/molovo/laravel-model-traits/.env.travis .env
