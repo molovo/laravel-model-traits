@@ -18,6 +18,6 @@ install:
 before_script:
   - cp ./vendor/molovo/laravel-model-traits/.env.travis .env
   - export APP_ENV="testing"
-  - php artisan migrate -q -n --path ./vendor/molovo/laravel-model-traits/src/migrations
+  - php artisan migrate -q -n --path ./vendor/molovo/laravel-model-traits/tests/Support/migrations
 
 script: vendor/bin/phpunit --verbose
