@@ -1,0 +1,23 @@
+language: php
+
+php:
+  - 5.5
+  - 5.6
+  - 7.0
+  - hhvm
+
+before_install:
+  - composer self-update
+
+install:
+  - composer create-project laravel/laravel
+  - cd ./laravel
+  - composer require molovo/laravel-model-traits
+  - composer update
+
+before_script:
+  - mysql -e 'create database laravel_model_traits_test;'
+  - cp ./vendor/molovo/laravel-model-traits/.env.travis .env
+  - php artisan migrate -q -n --path ./vendor/molovo/laravel-model-traits/src/tests/Support/migrations
+
+script: vendor/bin/phpunit

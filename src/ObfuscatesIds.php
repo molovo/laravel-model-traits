@@ -103,11 +103,9 @@ trait ObfuscatesIds
      *
      * @method  getIdAttribute
      *
-     * @param int $value The stored ID for the model
-     *
      * @return int The obfuscated ID
      */
-    public function getIdAttribute($value)
+    public function getIdAttribute()
     {
         // Set the database ID on another property, so it
         // can be retrieved if we need it

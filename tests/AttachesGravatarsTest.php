@@ -2,22 +2,19 @@
 
 namespace Molovo\ModelTraits\Test;
 
-use Molovo\ModelTraits\AttachesGravatars;
+use Molovo\ModelTraits\Test\Support\Models\TestModel;
 
 class AttachesGravatarsTest extends \PHPUnit_Framework_TestCase
 {
-    use AttachesGravatars;
-
-    private $email;
-    private $emailField;
-
     protected function setUp()
     {
-        $this->email = 'hi@molovo.co';
+        $this->model        = new TestModel;
+        $this->model->email = 'hi@molovo.co';
+        $this->model->save();
     }
 
     public function testGravatarUrl()
     {
-        return $this->assertTrue($this->getGravatarAttribute() === 'http://www.gravatar.com/avatar/bd85981cbfd89495f0f0b65803cf7b0f?s=80&d=mm&r=g');
+        return $this->assertEquals('http://www.gravatar.com/avatar/bd85981cbfd89495f0f0b65803cf7b0f?s=80&d=mm&r=g', $this->model->gravatar);
     }
 }

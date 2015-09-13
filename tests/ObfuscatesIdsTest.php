@@ -1,18 +1,25 @@
 <?php
 
+/**
+ * WARNING.
+ *
+ * These tests all currently fail, as although their
+ * logic is correct, Laravel does not allow the primary
+ * key of a model to be set. Therefore without storing
+ * the model in the database, we are unable to test any
+ * methods which use the primary key.
+ */
 namespace Molovo\ModelTraits\Test;
 
-use Molovo\ModelTraits\ObfuscatesIds;
+use Molovo\ModelTraits\Test\Support\Models\TestModel;
 
 class ObfuscatesIdsTest extends \PHPUnit_Framework_TestCase
 {
-    use ObfuscatesIds;
-
-    private $id;
-
     protected function setUp()
     {
-        $this->id = 1;
+        $this->model     = new TestModel;
+        $this->model->id = 1985404696;
+        $this->model->save();
     }
 
     /**
@@ -21,25 +28,25 @@ class ObfuscatesIdsTest extends \PHPUnit_Framework_TestCase
     public function testAttributeObfuscated()
     {
         // Ensure obfuscated ID is returned
-        return $this->assertTrue($this->getIdAttribute() == 1985404696);
+        return $this->assertEquals(1985404696, $this->model->id);
     }
 
     public function testKeyNotObfuscated()
     {
-        return $this->assertTrue($this->getKey() == 1);
+        return $this->assertEquals(7, $this->model->getKey());
     }
 
     public function testHiddenAttributeNotObfuscated()
     {
-        return $this->assertTrue($this->__id == 1);
+        return $this->assertEquals(7, $this->model->__id);
     }
 
     public function testAttributeSet()
     {
-        $this->setIdAttribute(1978505655);
-        $this->assertTrue($this->getKey() == 2);
-        $this->assertTrue($this->__id == 2);
+        $this->model->id = 1978505655;
+        $this->assertEquals(2, $this->model->getKey());
+        $this->assertEquals(2, $this->model->__id);
 
-        return $this->assertTrue($this->getIdAttribute() == 1978505655);
+        return $this->assertEquals(1978505655, $this->model->id);
     }
 }
