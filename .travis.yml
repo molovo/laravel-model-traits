@@ -10,7 +10,14 @@ before_install:
   - composer self-update
 
 install:
-  - travis_retry composer self-update
-  - travis_retry composer install --prefer-source --no-interaction --dev
+  - composer create-project laravel/laravel
+  - cd ./laravel
+  - composer require "molovo/laravel-model-traits:${TRAVIS_BRANCH}#${TRAVIS_COMMIT}"
+  - composer update
+
+before_script:
+  - cp .env.travis .env
+  - export APP_ENV="testing"
+  - php artisan migrate -q -n --path ./vendor/molovo/laravel-model-traits/src/migrations
 
 script: vendor/bin/phpunit --verbose
