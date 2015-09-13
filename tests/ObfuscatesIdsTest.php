@@ -32,7 +32,7 @@ namespace Molovo\ModelTraits\Test {
         protected function setUp()
         {
             $this->model     = new TestModel;
-            $this->model->setIdAttribute(1985404696);
+            // $this->model->id = 1985404696;
         }
 
         /**
