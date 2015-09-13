@@ -23,5 +23,5 @@ class TestModel extends Model
      *
      * @var int
      */
-    public $id = 1;
+    protected $id = 1;
 }
