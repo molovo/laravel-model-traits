@@ -14,14 +14,14 @@ class TestModel extends Model
 
     protected $encrypted = [];
 
-    protected $fillable = ['primary', 'email'];
+    protected $fillable = ['id', 'email'];
 
     /*
      * Since we're testing without a database, we'll override
-     * the attributes array here, which would normally be
+     * the ID attribute here, which would normally be
      * filled from our actual data row.
      *
-     * @var array
+     * @var int
      */
-    // protected $attributes = ['id' => 7, 'email' => 'hi@molovo.co'];
+    public $id = 1;
 }
