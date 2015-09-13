@@ -19,5 +19,6 @@ before_script:
   - cp ./vendor/molovo/laravel-model-traits/.env.travis .env
   - export APP_ENV="testing"
   - php artisan migrate -q -n --path ./vendor/molovo/laravel-model-traits/tests/Support/migrations
+  - cd ./vendor/molovo/laravel-model-traits
 
-script: vendor/bin/phpunit --verbose
+script: ../../../vendor/bin/phpunit --verbose

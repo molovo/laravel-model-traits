@@ -13,15 +13,4 @@ class TestModel extends Model
     use AttachesGravatars, EncryptsAttributes, ObfuscatesIds, ReturnsArrays;
 
     protected $encrypted = [];
-
-    protected $fillable = ['id', 'email'];
-
-    /*
-     * Since we're testing without a database, we'll override
-     * the ID attribute here, which would normally be
-     * filled from our actual data row.
-     *
-     * @var int
-     */
-    protected $id = 1;
 }
