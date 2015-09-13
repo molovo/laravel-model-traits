@@ -10,7 +10,7 @@ before_install:
   - composer self-update
 
 install:
-  - composer create-project laravel/laravel --stability dev
+  - composer create-project laravel/laravel --stability="dev"
   - cd ./laravel
   - composer require molovo/laravel-model-traits
   - composer update
