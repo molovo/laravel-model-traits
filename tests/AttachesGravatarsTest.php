@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__.'/../src/AttachesGravatars.php';
+namespace Molovo\ModelTraits\Test;
 
 use Molovo\ModelTraits\AttachesGravatars;
 

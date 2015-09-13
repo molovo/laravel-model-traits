@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__.'/../src/ObfuscatesIds.php';
+namespace Molovo\ModelTraits\Test;
 
 use Molovo\ModelTraits\ObfuscatesIds;
 
