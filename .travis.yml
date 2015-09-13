@@ -12,14 +12,5 @@ before_install:
 install:
   - travis_retry composer self-update
   - travis_retry composer install --prefer-source --no-interaction --dev
-  # - composer create-project --stability=dev laravel/laravel
-  # - cd ./laravel
-  # - composer require molovo/laravel-model-traits
-  # - composer update
 
-before_script:
-  - mysql -e 'create database laravel_model_traits_test;'
-  - cp ./vendor/molovo/laravel-model-traits/.env.travis .env
-  - php artisan migrate -q -n --path ./vendor/molovo/laravel-model-traits/src/tests/Support/migrations
-
-script: vendor/bin/phpunit
+script: vendor/bin/phpunit --verbose

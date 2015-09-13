@@ -10,7 +10,6 @@ class AttachesGravatarsTest extends \PHPUnit_Framework_TestCase
     {
         $this->model        = new TestModel;
         $this->model->email = 'hi@molovo.co';
-        $this->model->save();
     }
 
     public function testGravatarUrl()

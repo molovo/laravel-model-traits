@@ -19,7 +19,6 @@ class ObfuscatesIdsTest extends \PHPUnit_Framework_TestCase
     {
         $this->model     = new TestModel;
         $this->model->id = 1985404696;
-        $this->model->save();
     }
 
     /**
