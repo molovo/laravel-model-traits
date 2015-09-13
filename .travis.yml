@@ -17,8 +17,11 @@ install:
 
 before_script:
   - cp ./vendor/molovo/laravel-model-traits/.env.travis .env
+  - cp ./vendor/molovo/laravel-model-traits/tests/Support/database/test.sqlite storage/database.sqlite
   - export APP_ENV="testing"
   - php artisan migrate --path ./vendor/molovo/laravel-model-traits/tests/Support/migrations
   - cd ./vendor/molovo/laravel-model-traits
+  - sqlite3 /home/travis/build/molovo/laravel-model-traits/laravel/storage/da
+  tabase.sqlite
 
 script: ../../../vendor/bin/phpunit --verbose
