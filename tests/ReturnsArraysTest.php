@@ -3,8 +3,9 @@
 namespace Molovo\ModelTraits\Test;
 
 use Molovo\ModelTraits\Test\Support\Models\TestModel;
+use Molovo\ModelTraits\Test\Support\TestCase;
 
-class ReturnsArraysTest extends \PHPUnit_Framework_TestCase
+class ReturnsArraysTest extends TestCase
 {
     public function testFillsArrays()
     {

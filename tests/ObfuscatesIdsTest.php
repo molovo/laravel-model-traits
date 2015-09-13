@@ -12,8 +12,9 @@
 namespace Molovo\ModelTraits\Test;
 
 use Molovo\ModelTraits\Test\Support\Models\TestModel;
+use Molovo\ModelTraits\Test\Support\TestCase;
 
-class ObfuscatesIdsTest extends \PHPUnit_Framework_TestCase
+class ObfuscatesIdsTest extends TestCase
 {
     protected function setUp()
     {

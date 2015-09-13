@@ -3,8 +3,9 @@
 namespace Molovo\ModelTraits\Test;
 
 use Molovo\ModelTraits\Test\Support\Models\TestModel;
+use Molovo\ModelTraits\Test\Support\TestCase;
 
-class AttachesGravatarsTest extends \PHPUnit_Framework_TestCase
+class AttachesGravatarsTest extends TestCase
 {
     protected function setUp()
     {

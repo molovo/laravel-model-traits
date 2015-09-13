@@ -10,7 +10,7 @@ before_install:
   - composer self-update
 
 install:
-  - composer create-project laravel/laravel
+  - composer create-project --prefer-source --no-interaction laravel/laravel
   - cd ./laravel
   - composer require "molovo/laravel-model-traits:${TRAVIS_BRANCH}@dev"
   - composer update
